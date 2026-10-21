@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio de Produções - Links</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #d91b5c 0%, #a21245 50%, #61092b 100%);
+            min-height: 100vh;
+        }
+
+        /* Card Central Estilo Smartphone / Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Estilização dos Botões de Links (Estilo Pill / Pílula da imagem) */
+        .link-btn {
+            background-color: #ffffff;
+            color: #1e293b;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+        }
+
+        .link-btn:hover {
+            transform: translateY(-2px) scale(1.01);
+            background-color: #ffffff;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+            color: #d91b5c;
+        }
+
+        .link-btn:active {
+            transform: translateY(0) scale(0.99);
+        }
+
+        /* Destaque para o WhatsApp / Link de Destaque */
+        .link-btn-highlight {
+            background: linear-gradient(90deg, #25D366 0%, #128C7E 100%);
+            color: #ffffff !important;
+        }
+        .link-btn-highlight:hover {
+            background: linear-gradient(90deg, #22c35e 0%, #0e7065 100%);
+            color: #ffffff !important;
+        }
+
+        /* Scrollbar interna discreta e elegante para a lista de links */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Toast Popup */
+        #toast {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-3 sm:p-6 text-white min-h-screen">
+
+    <!-- CONTAINER PRINCIPAL (ESTILO TELA DE SMARTHPONE) -->
+    <main class="w-full max-w-sm sm:max-w-md mx-auto relative z-10 my-auto">
+        
+        <!-- CARD COM GLASSMORPHISM -->
+        <div class="glass-card rounded-[2.5rem] p-5 sm:p-7 relative overflow-hidden flex flex-col max-h-[90vh]">
+            
+            <!-- BOTÃO DE COMPARTILHAR NO CANTO SUPERIOR DIREITO -->
+            <button onclick="shareOrCopyLink()" aria-label="Compartilhar página" 
+                    class="absolute top-5 right-5 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/20 hover:bg-white/30 active:bg-white/40 text-white flex items-center justify-center backdrop-blur-md transition-all border border-white/20 focus:outline-none z-20 shadow-md">
+                <i class="fa-solid fa-share-nodes text-xs sm:text-sm"></i>
+            </button>
+
+            <!-- CABEÇALHO DO PERFIL -->
+            <div class="flex flex-col items-center text-center pb-4 border-b border-white/20 flex-shrink-0">
+                <!-- Foto de Perfil / Avatar -->
+                <div class="relative mb-3 group">
+                    <div class="absolute -inset-1 bg-white/40 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                    <img id="profile-img" 
+                         src="kalebe.jpg" 
+                         alt="Foto de Perfil" 
+                         class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-2 border-white shadow-xl">
+                </div>
+
+                <!-- Nome e Função -->
+                <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-white drop-shadow-sm">Juan Kalebe</h1>
+                <p class="text-white/90 font-medium text-xs sm:text-sm mt-0.5">Estudante de Engenharia de Controle e Automação</p>
+            </div>
+
+            <!-- LISTA ÚNICA E CONTÍNUA DOS 10 LINKS -->
+            <div class="overflow-y-auto custom-scrollbar pr-1 my-4 space-y-3 flex-1">
+
+                <!-- LINK 1: WHATSAPP / CONTATO -->
+                <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" 
+                   class="link-btn link-btn-highlight w-full py-3.5 px-5 rounded-full font-semibold text-xs sm:text-sm flex items-center justify-between group">
+                    <i class="fa-brands fa-whatsapp text-lg w-6"></i>
+                    <span class="flex-1 text-center font-bold">Falar Comigo no WhatsApp</span>
+                    <i class="fa-solid fa-chevron-right text-xs opacity-80 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+                <!-- LINK 2: APRESENTAÇÃO 1 -->
+                <a href="#" target="_blank" rel="noopener noreferrer" 
+                   class="link-btn w-full py-3.5 px-5 rounded-full font-medium text-xs sm:text-sm flex items-center justify-between group">
+                    <i class="fa-solid fa-file-powerpoint text-amber-500 text-base w-6"></i>
+                    <span class="flex-1 text-center font-semibold">Apresentação: Projeto Principal</span>
+                    <i class="fa-solid fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+                <!-- LINK 3: APRESENTAÇÃO 2 -->
+                <a href="#" target="_blank" rel="noopener noreferrer" 
+                   class="link-btn w-full py-3.5 px-5 rounded-full font-medium text-xs sm:text-sm flex items-center justify-between group">
+                    <i class="fa-solid fa-display text-sky-500 text-base w-6"></i>
+                    <span class="flex-1 text-center font-semibold">Demonstração Técnica da Produção A</span>
+                    <i class="fa-solid fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+                <!-- LINK 4: VÍDEO / PITCH -->
+                <a href="#" target="_blank" rel="noopener noreferrer" 
+                   class="link-btn w-full py-3.5 px-5 rounded-full font-medium text-xs sm:text-sm flex items-center justify-between group">
+                    <i class="fa-solid fa-circle-play text-red-500 text-base w-6"></i>
+                    <span class="flex-1 text-center font-semibold">Vídeo Pitch & Apresentação (YouTube)</span>
+                    <i class="fa-solid fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+                <!-- LINK 5: PORTFÓLIO DE CÓDIGOS -->
+                <a href="#" target="_blank" rel="noopener noreferrer" 
+                   class="link-btn w-full py-3.5 px-5 rounded-full font-medium text-xs sm:text-sm flex items-center justify-between group">
+                    <i class="fa-brands fa-github text-slate-800 text-base w-6"></i>
+                    <span class="flex-1 text-center font-semibold">Repositório de Códigos & Projetos</span>
+                    <i class="fa-solid fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+                <!-- LINK 6: RELATÓRIO TÉCNICO -->
+                <a href="#" target="_blank" rel="noopener noreferrer" 
+                   class="link-btn w-full py-3.5 px-5 rounded-full font-medium text-xs sm:text-sm flex items-center justify-between group">
+                    <i class="fa-solid fa-file-pdf text-rose-500 text-base w-6"></i>
+                    <span class="flex-1 text-center font-semibold">Relatório Técnico de Resultados (PDF)</span>
+                    <i class="fa-solid fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+                <!-- LINK 7: ARTIGO OU PUBLICACÃO -->
+                <a href="#" target="_blank" rel="noopener noreferrer" 
+                   class="link-btn w-full py-3.5 px-5 rounded-full font-medium text-xs sm:text-sm flex items-center justify-between group">
+                    <i class="fa-solid fa-newspaper text-emerald-600 text-base w-6"></i>
+                    <span class="flex-1 text-center font-semibold">Artigo / Publicação de Estudo</span>
+                    <i class="fa-solid fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+                <!-- LINK 8: CURRÍCULO COMPLETO -->
+                <a href="#" target="_blank" rel="noopener noreferrer" 
+                   class="link-btn w-full py-3.5 px-5 rounded-full font-medium text-xs sm:text-sm flex items-center justify-between group">
+                    <i class="fa-solid fa-id-card text-purple-600 text-base w-6"></i>
+                    <span class="flex-1 text-center font-semibold">Baixar Currículo Atualizado (PDF)</span>
+                    <i class="fa-solid fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+                <!-- LINK 9: LINKEDIN -->
+                <a href="#" target="_blank" rel="noopener noreferrer" 
+                   class="link-btn w-full py-3.5 px-5 rounded-full font-medium text-xs sm:text-sm flex items-center justify-between group">
+                    <i class="fa-brands fa-linkedin text-blue-600 text-base w-6"></i>
+                    <span class="flex-1 text-center font-semibold">Perfil Profissional no LinkedIn</span>
+                    <i class="fa-solid fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+                <!-- LINK 10: OUTRO LINK / SITE PESSOAL -->
+                <a href="#" target="_blank" rel="noopener noreferrer" 
+                   class="link-btn w-full py-3.5 px-5 rounded-full font-medium text-xs sm:text-sm flex items-center justify-between group">
+                    <i class="fa-solid fa-globe text-indigo-600 text-base w-6"></i>
+                    <span class="flex-1 text-center font-semibold">Visite Meu Site / Portfólio Externo</span>
+                    <i class="fa-solid fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+            </div>
+
+            <!-- RODAPÉ -->
+            <div class="pt-3 border-t border-white/20 flex flex-col items-center flex-shrink-0">
+                <div class="flex justify-center space-x-3.5">
+                    <a href="#" target="_blank" aria-label="LinkedIn" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-all hover:scale-110">
+                        <i class="fa-brands fa-linkedin-in text-xs"></i>
+                    </a>
+                    <a href="#" target="_blank" aria-label="GitHub" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-all hover:scale-110">
+                        <i class="fa-brands fa-github text-xs"></i>
+                    </a>
+                    <a href="mailto:seuemail@exemplo.com" aria-label="E-mail" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-all hover:scale-110">
+                        <i class="fa-solid fa-envelope text-xs"></i>
+                    </a>
+                </div>
+
+                <p class="text-center text-[10px] text-white/70 mt-2">
+                    &copy; <span id="year"></span> • Todos os direitos reservados
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- NOTIFICAÇÃO TOAST AO COPIAR LINK -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-white text-slate-900 px-4 py-2 rounded-full font-semibold text-xs shadow-2xl flex items-center space-x-2 pointer-events-none opacity-0 translate-y-4 z-50">
+        <i class="fa-solid fa-circle-check text-emerald-500"></i>
+        <span id="toast-message">Link copiado para a área de transferência!</span>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Atualiza ano dinamicamente no rodapé
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Função de compartilhar ou copiar link da página
+        function shareOrCopyLink() {
+            const pageUrl = window.location.href;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: document.title,
+                    url: pageUrl
+                }).catch(() => {});
+            } else {
+                const input = document.createElement('input');
+                input.value = pageUrl;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand('copy');
+                document.body.removeChild(input);
+
+                showToast("Link copiado com sucesso!");
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+
+            toast.classList.remove('opacity-0', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-4');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
